@@ -1,0 +1,49 @@
+{% extends 'main/navbar_layout.html' %}
+{% block cart %}
+
+{% for author in authors %}
+
+<section class="cart-list-area">
+    <div class="container">
+        
+            
+                <div class="row" id="cart_items_details">
+                    <div class="col-12 col-md-8 col-lg-9">
+
+                        <div class="in-cart-box">
+                            <div class="title">{{author.t_user.first_name}} {{author.t_user.last_name}}</div>
+                            <div class="">
+                                <ul class="cart-course-list list-unstyled">
+                                    
+                                        
+                                            <li>
+                                                <div class="cart-course-wrapper">
+                                                    <div class="card">
+                                                        
+                                                        <div class="card-body d-flex">
+                                                            
+                                                                
+                                                                <a href="{% url 'confirm_author' author.t_user.id %}" class="mx-2 btn btn-sm btn-success" >Confirm</a>
+                                                                <a href="{% url 'decline_author' author.t_user.id %}" class="mx-2 btn btn-sm btn-danger" >Remove</a>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </li>
+                                        
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            
+        
+    </div>
+</section>
+{% endfor %}
+
+{% endblock %}
+
